@@ -1,16 +1,17 @@
 
     
 
-<div class="container">
-    <mat-card>
+
+    <div style="margin: 0 5px;">
         <mat-card-header>
-            <mat-card-title style="font-size: 3em; margin-bottom: 30px; margin-top: 50px">COVID-19: Senegal Tracker.</mat-card-title>
-            <mat-card-subtitle style="font-size: 2em;">Suivez en temps réel l'évolution du coronavirus.</mat-card-subtitle>
+            <mat-card-title style=" margin-bottom: 30px; margin-top: 50px">COVID-19: Senegal Tracker.</mat-card-title>
+            <mat-card-subtitle >Suivez en temps réel l'évolution du coronavirus. <br>
+            Plus de détails sur: <strong>https://thevirustracker.com/</strong> </mat-card-subtitle>
             
         </mat-card-header>
-        <mat-divider></mat-divider>
+        <div style="height: 10px;"></div>
         <mat-card-content style="overflow: auto;">
-            <mat-card class="cards-container">
+            <div class="cards-container">
                 <mat-card-header class="cardItem" >
                     <mat-card-title class="card-title" style="color: orange;">{{ fetchedData['total_cases'] }}</mat-card-title>
                     <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
@@ -41,12 +42,12 @@
                     <mat-card-title class="card-title" style="color: black;">{{ fetchedData['total_serious_cases'] }}</mat-card-title>
                     <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
                 </mat-card-header>
-            </mat-card>
+            </div>
             <p> <em>Source: {{ fetchedData['info']['source'] }} </em> </p>
             <mat-divider></mat-divider>
             <div class="recommandations">
-                <button mat-raised-button color="primary">
-                    <h1>Mesures de protection essentielles contre le nouveau coronavirus: Les recommandations de l'OMS:</h1>
+                <button mat-raised-button color="primary" style="font-size: 2em; width: 100%">
+                    Mesures de protection:
                 </button>
                 <h2>Se laver fréquemment les mains
                 </h2>
@@ -126,11 +127,11 @@
             </div>
             <mat-divider mat-inset></mat-divider>
             <div class="world">
-               <mat-card>
-                   <mat-card-header>
-                       <mat-card-title>Le COVID-19 dans le monde</mat-card-title>
-                       <mat-card-subtitle> Source: <em>https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/world-map.html</em> du 14 Mars 2020, 12:00 </mat-card-subtitle>
-                   </mat-card-header>
+               <div>
+                 
+                       <button mat-raised-button color="primary" style="width: 100%">La COVID-19 dans le monde</button>
+                     <p>   Source: <em>https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/world-map.html</em> du 14 Mars 2020, 12:00 </p>
+             
                    
                    <mat-card-content>
                         <img matCardImage src="assets/images/world.png" style="opacity: 0.6;">
@@ -168,10 +169,10 @@
                        
                         </mat-card>
                    </mat-card-content>
-               </mat-card>
+                </div>
             </div>
         </mat-card-content>
         <mat-card-footer>
+
         </mat-card-footer>
-    </mat-card>
-</div>
+    </div>
