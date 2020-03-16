@@ -1,41 +1,44 @@
 
+    
+
 <div class="container">
     <mat-card>
         <mat-card-header>
-            <mat-card-title>COVID-19 Evolution Tracker.</mat-card-title>
-            <mat-card-subtitle>Suivez en temps réel l'évolution du coronavirus.</mat-card-subtitle>
+            <mat-card-title style="font-size: 3em; margin-bottom: 30px; margin-top: 50px">COVID-19 Evolution Tracker.</mat-card-title>
+            <mat-card-subtitle style="font-size: 2em;">Suivez en temps réel l'évolution du coronavirus.</mat-card-subtitle>
+            
         </mat-card-header>
-        <img matCardImage class="map-senegal" src="assets/images/senegal.png">
+        <mat-divider></mat-divider>
         <mat-card-content style="overflow: auto;">
             <mat-card class="cards-container">
-                <mat-card-header class="card1">
-                    <mat-card-title style="color: orange;">{{ fetchedData['total_cases'] }}</mat-card-title>
+                <mat-card-header class="cardItem" >
+                    <mat-card-title class="card-title" style="color: orange;">{{ fetchedData['total_cases'] }}</mat-card-title>
                     <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
                 </mat-card-header>
                 <!--///////////////////////////////////////////-->
-                <mat-card-header class="card2">
-                    <mat-card-title style="color: red;">{{ fetchedData['total_deaths'] }}</mat-card-title>
+                <mat-card-header class="cardItem">
+                    <mat-card-title class="card-title" style="color: red; ">{{ fetchedData['total_deaths'] }}</mat-card-title>
                     <mat-card-subtitle>Décés</mat-card-subtitle>
                 </mat-card-header>
                 <!--/////////////////////////////////////////-->
-                <mat-card-header class="card3">
-                    <mat-card-title style="color: green;">{{ fetchedData['total_recovered'] }}</mat-card-title>
+                <mat-card-header class="cardItem">
+                    <mat-card-title class="card-title" style="color: green;">{{ fetchedData['total_recovered'] }}</mat-card-title>
                     <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
                 </mat-card-header>
                 <!--/////////////////////////////////////////-->
-                <mat-card-header class="card4">
-                    <mat-card-title style="color: blue;"> +{{ fetchedData['total_new_cases_today'] }}</mat-card-title>
+                <mat-card-header class="cardItem">
+                    <mat-card-title class="card-title" style="color: blue;"> +{{ fetchedData['total_new_cases_today'] }}</mat-card-title>
                     <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
                 </mat-card-header>
                 <!--/////////////////////////////////////////-->
-                <mat-card-header class="card5">
-                    <mat-card-title style="color: yellow;"> +{{ fetchedData['total_new_deaths_today'] }}
+                <mat-card-header class="cardItem">
+                    <mat-card-title class="card-title" style="color: rgb(194, 194, 52);"> +{{ fetchedData['total_new_deaths_today'] }}
                     </mat-card-title>
                     <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
                 </mat-card-header>
                 <!--/////////////////////////////////////////-->
-                <mat-card-header class="card6">
-                    <mat-card-title style="color: black;">{{ fetchedData['total_serious_cases'] }}</mat-card-title>
+                <mat-card-header class="cardItem">
+                    <mat-card-title class="card-title" style="color: black;">{{ fetchedData['total_serious_cases'] }}</mat-card-title>
                     <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
                 </mat-card-header>
             </mat-card>
@@ -133,35 +136,36 @@
                         <img matCardImage src="assets/images/world.png" style="opacity: 0.6;">
                         <mat-card class="cards-container">
                             <mat-card-header class="card1">
-                                <mat-card-title style="color: orange;">{{ globalData['total_cases'] }}</mat-card-title>
+                                <mat-card-title class="card-title" style="color: orange;">{{ globalData['total_cases'] }}</mat-card-title>
                                 <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
                             </mat-card-header>
                             <!--///////////////////////////////////////////-->
                             <mat-card-header class="card2">
-                                <mat-card-title style="color: red;">{{ globalData['total_deaths'] }}</mat-card-title>
+                                <mat-card-title class="card-title" style="color: red;">{{ globalData['total_deaths'] }}</mat-card-title>
                                 <mat-card-subtitle>Décés</mat-card-subtitle>
                             </mat-card-header>
                             <!--/////////////////////////////////////////-->
                             <mat-card-header class="card3">
-                                <mat-card-title style="color: green;">{{ globalData['total_recovered'] }}</mat-card-title>
+                                <mat-card-title class="card-title" style="color: green;">{{ globalData['total_recovered'] }}</mat-card-title>
                                 <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
                             </mat-card-header>
                             <!--/////////////////////////////////////////-->
                             <mat-card-header class="card4">
-                                <mat-card-title style="color: blue;"> +{{ globalData['total_new_cases_today'] }}</mat-card-title>
+                                <mat-card-title class="card-title" style="color: blue;"> +{{ globalData['total_new_cases_today'] }}</mat-card-title>
                                 <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
                             </mat-card-header>
                             <!--/////////////////////////////////////////-->
-                            <mat-card-header class="card5">
-                                <mat-card-title style="color: yellow;"> +{{ globalData['total_new_deaths_today'] }}
+                            <mat-card-header class="card-title" class="card5">
+                                <mat-card-title class="card-title" style="color: rgb(179, 179, 67);"> +{{ globalData['total_new_deaths_today'] }}
                                 </mat-card-title>
                                 <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
                             </mat-card-header>
                             <!--/////////////////////////////////////////-->
                             <mat-card-header class="card6">
-                                <mat-card-title style="color: black;">{{ globalData['total_serious_cases'] }}</mat-card-title>
+                                <mat-card-title class="card-title" style="color: black;">{{ globalData['total_serious_cases'] }}</mat-card-title>
                                 <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
                             </mat-card-header>
+                       
                         </mat-card>
                    </mat-card-content>
                </mat-card>

@@ -5,14 +5,19 @@ thead, th {
 .map-senegal {
     opacity: 0.6;
     height: auto;
-    width: 100%;
+    width: 300px;
 }
 
 .cards-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 20px;
     text-align: center;
     justify-content: center;
     justify-items: center;
+}
+
+.card-title {
+    font-size: 3em
 }
