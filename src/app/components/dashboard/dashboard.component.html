@@ -1,0 +1,173 @@
+
+<div class="container">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>COVID-19 Evolution Tracker.</mat-card-title>
+            <mat-card-subtitle>Suivez en temps réel l'évolution du coronavirus.</mat-card-subtitle>
+        </mat-card-header>
+        <img matCardImage class="map-senegal" src="assets/images/senegal.png">
+        <mat-card-content style="overflow: auto;">
+            <mat-card class="cards-container">
+                <mat-card-header class="card1">
+                    <mat-card-title style="color: orange;">{{ fetchedData['total_cases'] }}</mat-card-title>
+                    <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
+                </mat-card-header>
+                <!--///////////////////////////////////////////-->
+                <mat-card-header class="card2">
+                    <mat-card-title style="color: red;">{{ fetchedData['total_deaths'] }}</mat-card-title>
+                    <mat-card-subtitle>Décés</mat-card-subtitle>
+                </mat-card-header>
+                <!--/////////////////////////////////////////-->
+                <mat-card-header class="card3">
+                    <mat-card-title style="color: green;">{{ fetchedData['total_recovered'] }}</mat-card-title>
+                    <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
+                </mat-card-header>
+                <!--/////////////////////////////////////////-->
+                <mat-card-header class="card4">
+                    <mat-card-title style="color: blue;"> +{{ fetchedData['total_new_cases_today'] }}</mat-card-title>
+                    <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
+                </mat-card-header>
+                <!--/////////////////////////////////////////-->
+                <mat-card-header class="card5">
+                    <mat-card-title style="color: yellow;"> +{{ fetchedData['total_new_deaths_today'] }}
+                    </mat-card-title>
+                    <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
+                </mat-card-header>
+                <!--/////////////////////////////////////////-->
+                <mat-card-header class="card6">
+                    <mat-card-title style="color: black;">{{ fetchedData['total_serious_cases'] }}</mat-card-title>
+                    <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
+                </mat-card-header>
+            </mat-card>
+            <p> <em>Source: {{ fetchedData['info']['source'] }} </em> </p>
+            <mat-divider></mat-divider>
+            <div class="recommandations">
+                <button mat-raised-button color="primary">
+                    <h1>Mesures de protection essentielles contre le nouveau coronavirus: Les recommandations de l'OMS:</h1>
+                </button>
+                <h2>Se laver fréquemment les mains
+                </h2>
+                <p>Se laver fréquemment les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+
+                   <strong> Pourquoi?</strong> Se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon tue le virus s’il est présent sur vos mains.</p>
+                   <h2>Éviter les contacts proches
+                </h2>
+                <p>Maintenir une distance d’au moins 1 mètre avec les autres personnes, en particulier si elles toussent, éternuent ou ont de la fièvre. <br>
+
+                  <strong>Pourquoi?</strong>   Lorsqu’une personne infectée par un virus respiratoire, comme la COVID-19, tousse ou éternue, elle projette de petites gouttelettes contenant le virus. Si vous êtes trop près, vous pouvez inhaler le virus.</p>
+
+                    <h2>Éviter de se toucher les yeux, le nez et la bouche.
+                    </h2>
+                    <p> <strong> Pourquoi? </strong>Les mains sont en contact avec de nombreuses surfaces qui peuvent être contaminées par le virus. Si vous vous touchez les yeux, le nez ou la bouche, vous risquez d’être en contact avec le virus présent sur ces surfaces.
+                    </p>
+                    <h2>Respecter les règles d’hygiène respiratoire
+             </h2>
+             <p>Se couvrir la bouche et le nez avec le pli du coude ou avec un mouchoir en cas de toux ou d’éternuement – jeter le mouchoir immédiatement après dans une poubelle fermée et se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+
+               <strong>Pourquoi?</strong>  Se couvrir la bouche et le nez en cas de toux ou d’éternuement permet d’éviter la propagation des virus et autres agents pathogènes.</p>
+               <h2>Tenez-vous informé et suivez les conseils de votre médecin
+            </h2>
+            <p>Tenez-vous au courant des dernières évolutions concernant la COVID-19. Suivez les conseils de votre médecin, des autorités de santé nationales et locales ou de votre employeur pour savoir comment vous protéger et protéger les autres de la COVID-19. <br>
+
+                Pourquoi ? Ce sont les autorités nationales et locales qui disposent des informations les plus récentes sur la propagation ou non de la COVID-19 dans la région où vous vous trouvez. Elles sont les mieux placées pour expliquer ce que les personnes dans votre région devraient faire pour se protéger. </p>
+                <h4>Source: <em>https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public</em> </h4>
+            </div>
+            <div class="faq">
+                <button color="primary" mat-raised-button style="font-size: 2em; width: 100%">Questions
+                    fréquentes:</button>
+                <h2>Qu'est-ce qu'un coronavirus?</h2>
+                <p>Les coronavirus forment une vaste famille de virus qui peuvent être pathogènes chez l’homme et chez l’animal. On sait que, chez l’être humain, plusieurs coronavirus peuvent entraîner des infections respiratoires dont les manifestations vont du simple rhume à des maladies plus graves comme le syndrome respiratoire du Moyen-Orient (MERS) et le syndrome respiratoire aigu sévère (SRAS). Le dernier coronavirus qui a été découvert est responsable de la maladie à coronavirus 2019 (COVID-19). </p>
+                <h2>Qu’est-ce que la COVID-19 ?</h2>
+                <p>La COVID-19 est la maladie infectieuse causée par le dernier coronavirus qui a été découvert. Ce nouveau virus et cette maladie étaient inconnus avant l’apparition de la flambée à Wuhan (Chine) en décembre 2019. </p>
+                <h2>Quels sont les symptômes de la COVID-19 ?</h2>
+                <h4>Les symptomes les plus fréquents sont:
+                    <ul>
+                        <li>Fièvre,</li>
+                        <li>Fatigue,</li>
+                        <li>Toux sèche.</li>
+                    </ul>
+                    Certains patients présentent:
+                    <ul>
+                        <li>Douleurs,</li>
+                        <li>Congestion nasale,</li>
+                        <li>Ecoulement nasal,</li>
+                        <li>Maux de gorge</li>
+                        <li>Diarrhée.</li>
+                        Ces symptômes sont généralement bénins et apparaissent de manière progressive. Certaines personnes, bien qu’infectées, ne présentent aucun symptôme et se sentent bien. La plupart (environ 80 %) des personnes guérissent sans avoir besoin de traitement particulier. Environ une personne sur six contractant la maladie présente des symptômes plus graves, notamment une dyspnée. Les personnes âgées et celles qui ont d’autres problèmes de santé (hypertension artérielle, problèmes cardiaques ou diabète) ont plus de risques de présenter des symptômes graves. Toute personne qui a de la fièvre, qui tousse et qui a des difficultés à respirer doit consulter un médecin. 
+                    </ul>
+                </h4>
+                <h2>Comment la COVID-19 se propage-t-elle ?</h2>
+                <p>La COVID-19 est transmise par des personnes porteuses du virus. La maladie peut se transmettre d’une personne à l’autre par le biais de gouttelettes respiratoires expulsées par le nez ou par la bouche lorsqu’une personne tousse ou éternue. Ces gouttelettes peuvent se retrouver sur des objets ou des surfaces autour de la personne en question. On peut alors contracter la COVID-19 si on touche ces objets ou ces surfaces et si on se touche ensuite les yeux, le nez ou la bouche. Il est également possible de contracter la COVID-19 en inhalant des gouttelettes d’une personne malade qui vient de tousser ou d’éternuer. C’est pourquoi il est important de se tenir à plus d’un mètre d’une personne malade.
+
+                    L’OMS examine les travaux de recherche en cours sur la manière dont la COVID-19 se propage et elle continuera à communiquer les résultats actualisés.</p>
+                <h3> <em>Source: https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses</em> </h3>
+                <h2>Quand a été enregistré le premier cas de coronavirus au Sénégal?</h2>
+                <p> Le premier cas à été enreistré le 2 Mars 2020.</p>
+                <h2>Combien de personnes sont infectés par le coronavirus au Sénégal?</h2>
+                <p>A cet instant, {{ fetchedData['total_cases'] }} sont infectés par le coronavirus au Sénégal.</p>
+                <h2>Combien de personnes ont guéries du coronavirus au Sénégal?</h2>
+                <p>A cet instant, {{ fetchedData['total_recovered'] }} personnes on guéries du coronavirus au Sénégal.
+                </p>
+                <h2>Combien de personnes sont décédées du coronavirus au Sénégal? </h2>
+                <p>Actuellement, il y a {{ fetchedData['total_deaths'] }} personnes décédées du coronavirus au Sénégal.
+                </p>
+                <h2>Puis-je voyager vers le Sénégal?</h2>
+                <p>Parcequ'il y a des cas de coronavirus enregistrés au Sénégal, il n'est pas prudent de s'y rendre
+                    actuellement. Si vous y étes obligé, veillez à porter un masque et à vous lavez les mains à chaque
+                    opportunité.</p>
+                <h2>Est-il prudent de recevoir un coli du Sénégal actuellement?</h2>
+                <p>Oui. La probabilité qu'une personne infectée par le coronavirus puisse contaminer des objets
+                    comerciaux venant du Sénégal est trés basse, ainsi que le risque d'attraper le virus causant le
+                    COVID-19 à travers un coli ayant voyagé et ayant été exposé à des conditions et temperatures
+                    différentes.</p>
+            </div>
+            <mat-divider mat-inset></mat-divider>
+            <div class="world">
+               <mat-card>
+                   <mat-card-header>
+                       <mat-card-title>Le COVID-19 dans le monde</mat-card-title>
+                       <mat-card-subtitle> Source: <em>https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/world-map.html</em> du 14 Mars 2020, 12:00 </mat-card-subtitle>
+                   </mat-card-header>
+                   
+                   <mat-card-content>
+                        <img matCardImage src="assets/images/world.png" style="opacity: 0.6;">
+                        <mat-card class="cards-container">
+                            <mat-card-header class="card1">
+                                <mat-card-title style="color: orange;">{{ globalData['total_cases'] }}</mat-card-title>
+                                <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--///////////////////////////////////////////-->
+                            <mat-card-header class="card2">
+                                <mat-card-title style="color: red;">{{ globalData['total_deaths'] }}</mat-card-title>
+                                <mat-card-subtitle>Décés</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--/////////////////////////////////////////-->
+                            <mat-card-header class="card3">
+                                <mat-card-title style="color: green;">{{ globalData['total_recovered'] }}</mat-card-title>
+                                <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--/////////////////////////////////////////-->
+                            <mat-card-header class="card4">
+                                <mat-card-title style="color: blue;"> +{{ globalData['total_new_cases_today'] }}</mat-card-title>
+                                <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--/////////////////////////////////////////-->
+                            <mat-card-header class="card5">
+                                <mat-card-title style="color: yellow;"> +{{ globalData['total_new_deaths_today'] }}
+                                </mat-card-title>
+                                <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
+                            </mat-card-header>
+                            <!--/////////////////////////////////////////-->
+                            <mat-card-header class="card6">
+                                <mat-card-title style="color: black;">{{ globalData['total_serious_cases'] }}</mat-card-title>
+                                <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
+                            </mat-card-header>
+                        </mat-card>
+                   </mat-card-content>
+               </mat-card>
+            </div>
+        </mat-card-content>
+        <mat-card-footer>
+        </mat-card-footer>
+    </mat-card>
+</div>
