@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DataTablesModule } from 'angular-datatables';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavComponent } from './components/nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -42,16 +41,37 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { GlobalCasesComponent } from './components/global-cases/global-cases.component';
 import { MobxAngularModule } from 'mobx-angular';
 import { ChartModule } from 'angular2-chartjs';
+import { ChartComponent } from './components/chart/chart.component';
+
+// Import angular-fusioncharts
+import { FusionChartsModule } from "angular-fusioncharts";
+
+// Import FusionCharts library and chart modules
+import * as FusionCharts from "fusioncharts";
+import * as FusionMaps from "fusioncharts/fusioncharts.maps";
+
+import * as FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import { NavComponent } from './components/nav/nav.component';
+import { ChartWorldComponent } from './components/chart-world/chart-world.component';
 
 
+
+// Pass the fusioncharts library and chart modules
+FusionChartsModule.fcRoot(
+  FusionCharts,
+  FusionMaps,
+  FusionTheme
+);
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    GlobalCasesComponent,
+    ChartComponent,
     NavComponent,
-    GlobalCasesComponent
+    ChartWorldComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +115,8 @@ import { ChartModule } from 'angular2-chartjs';
     MatSortModule,
     MatPaginatorModule,
     MobxAngularModule,
-    ChartModule
+    ChartModule,
+    FusionChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

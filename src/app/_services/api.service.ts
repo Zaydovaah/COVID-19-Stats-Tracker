@@ -38,13 +38,13 @@ export class ApiService {
         );
   }
 
-  getDataIta(): Observable<Data[]> {
-    return this.http.get<Data[]>(`${environment.apiUrlItaly}`)
-        .pipe(
-          tap(data => console.log('fetched data')),
-          catchError (this.handleError('getData', []))
-        );
-  }
+  // getDataIta(): Observable<Data[]> {
+  //   return this.http.get<Data[]>(`${environment.apiUrlItaly}`)
+  //       .pipe(
+  //         tap(data => console.log('fetched data')),
+  //         catchError (this.handleError('getData', []))
+  //       );
+  // }
 
   getDataGlobal(): Observable<GlobalData[]> {
     return this.http.get<GlobalData[]>(`${environment.apiUrlGlobal}`)
@@ -54,13 +54,13 @@ export class ApiService {
         );
   }
 
-  getGlobalTimeline(): Observable<any[]> {
-    return this.http.get<any[]>(`${environment.apiGlobalTimelineUrl}`)
-        .pipe(
-          tap(data => console.log('fetched global timeline')),
-          catchError (this.handleError('getGlobalTimeline', []))
-        );
-  }
+  // getGlobalTimeline(): Observable<any[]> {
+  //   return this.http.get<any[]>(`${environment.apiGlobalTimelineUrl}`)
+  //       .pipe(
+  //         tap(data => console.log('fetched global timeline')),
+  //         catchError (this.handleError('getGlobalTimeline', []))
+  //       );
+  // }
 
   // getSnTimeline(): Observable<SnTimeline[]> {
   //   return this.http.get<SnTimeline[]>(`${environment.apiSnTimelineUrl}`)

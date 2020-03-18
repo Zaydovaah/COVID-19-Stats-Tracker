@@ -1,23 +1,204 @@
-thead, th {
-    position: relative;
-}
-
-.map-senegal {
-    opacity: 0.6;
-    height: auto;
-    width: 300px;
-}
-
-.cards-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    row-gap: 20px;
-    text-align: center;
+.container {
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: repeat(1fr);
+    // grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
     justify-content: center;
     justify-items: center;
+    // grid-template-areas: 
+    // "head"
+    // "map-chart"
+    // "count-sn"
+    // "faq"
+    // "news"
+    // "world";
 }
 
-.card-title {
-    font-size: 25px
+.head {
+    grid-area: head;
+    margin: 30px 0;
+}
+
+.head h1 {
+    font-size: 40px;
+}
+
+.map-chart {
+    grid-area: map-chart;
+}
+
+.counts-sn {
+    grid-area: count-sn;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-items: center;
+    justify-content: center;
+    text-align: center;
+    grid-template-areas:
+        "total deaths recovered"
+        "new-cases new-deaths serious-cases";
+}
+            .total {
+                grid-area: total;
+                text-align: center;
+            }
+
+            .counts-sn h1 {
+                font-size: 30px;
+            }
+
+            .total h1 {
+                color: blue;
+            }
+
+            .deaths {
+                grid-area: deaths;
+                text-align: center;
+            }
+            .deaths h1 {
+                color: red;
+            }
+
+            .recovered {
+                grid-area: recovered;
+                text-align: center;
+            }
+            .recovered h1 {
+                color: green;
+            }
+
+            .new-cases {
+                grid-area: new-cases;
+                text-align: center;
+            }
+            .new-cases h1 {
+                color: orange;
+            }
+
+            .new-deaths {
+                grid-area: new-deaths;
+                text-align: center;
+            }
+            .new-deaths h1 {
+                color: orangered;
+            }
+
+            .serious-cases {
+                grid-area: serious-cases;
+                text-align: center;
+            }
+            .serious-cases h1 {
+                color: rgb(49, 13, 13);
+            }
+
+.faq {
+    grid-area: faq;
+}
+
+.news {
+    grid-area: news;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+}
+
+.world {
+    grid-area: world;
+}
+
+figure {
+    border: 1px solid #FFA000;
+}
+
+figure img {
+    height: 200px;
+    width: 100%;
+}
+
+.faq-head {
+    background-color: #FFA000;
+}
+
+.faq-1 {
+    background-color: #EF6C00;
+}
+
+.faq-2 {
+    background-color: #FFB300;
+}
+
+.faq-3 {
+    background-color: #EF6C00;
+}
+
+.faq-4 {
+    background-color: #FFB300;  
+}
+
+.faq-and-recommandations {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 10px;
+    grid-template-areas: "faq recommandations";
+}
+
+.recommandations-head {
+    background-color: #FFB300;
+}
+
+.recommandations {
+    grid-area: recommandations;
+}
+
+@media only screen and (max-width: 500px) {
+    .faq-and-recommandations {
+        margin-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 10px;
+        grid-template-areas: "faq"
+                             "recommandations";
+    }
+
+    .news {
+        grid-area: news;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 10px;
+        row-gap: 10px;
+    }
+
+    .counts-sn {
+        grid-area: count-sn;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        justify-items: center;
+        justify-content: center;
+        text-align: center;
+        grid-template-areas:
+            "total"
+            "deaths"
+            "recovered"
+            "new-cases"
+            "new-deaths" 
+            "serious-cases";
+    }
+
+    .recommandations-head {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .faq-head {
+        display: flex;
+        flex-wrap: wrap;
+    }
 }

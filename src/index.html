@@ -9,6 +9,49 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {
+        'packages':['geochart'],
+        // Note: you will need to get a mapsApiKey for your project.
+        // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+        'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+      });
+      google.charts.setOnLoadCallback(drawRegionsMap);
+
+      function drawRegionsMap() {
+        var data = google.visualization.arrayToDataTable([
+          ['région', 'cas'],
+          ['DAKAR', 27],
+          ['DIOURBEL', 0],
+          ['FATIK', 0],
+          ['KAFFRINE', 0],
+          ['KAOLACK', 0],
+          ['KOLDA', 0],
+          ['KÉDOUGOU', 0],
+          ['LOUGA', 0],
+          ['MATAM', 0],
+          ['SAINT-LOUIS', 0],
+          ['SÉDHIOU', 0],
+          ['TAMBACOUNDA', 0],
+          ['THIÈS', 0],
+          ['ZIGUINCHOR', 0]
+        ]);
+
+        var options = {
+          region: 'SN', // SENEGAL
+          colorAxis: { colors: ['#aec7e8', '#FF9800'] },
+          displayMode: 'regions',
+          resolution : 'provinces'
+        };
+
+        var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+    <!--//////////////////////////////////////////////////-->
 </head>
 <body class="mat-typography">
 

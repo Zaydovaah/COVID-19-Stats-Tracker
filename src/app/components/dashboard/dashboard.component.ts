@@ -4,6 +4,10 @@ import { ApiService } from '../../_services/api.service';
 import { SnTimeline } from '../../_models/SnTimeline';
 import { GlobalData } from '../../_models/globalData';
 import { Chart } from "chart.js";
+import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import {FlatTreeControl} from '@angular/cdk/tree';
+
+
 
 @Component({
   selector: 'app-dashboard',
@@ -12,6 +16,7 @@ import { Chart } from "chart.js";
 })
 export class DashboardComponent implements OnInit {
 
+  panelOpenState = false;
   fetchedData: Data[];
   fetchedNews: SnTimeline[];
   globalData: GlobalData[];
@@ -19,6 +24,7 @@ export class DashboardComponent implements OnInit {
   country: Data[];
 
   isLoadingResults = true;
+
 
   constructor(private apiService: ApiService) { }
 
@@ -47,18 +53,18 @@ export class DashboardComponent implements OnInit {
       this.isLoadingResults = false;
     });
 
-    this.apiService.getDataIta().subscribe((res: any[]) => {
-      this.itaData = res['countrydata'][0];
-      this.country = res['countrydata'][0]['info'];
-      // this.fetchedNews = res['countrynewsitems'][0];
-      console.log(this.itaData);
-      console.log(this.country);
-      this.isLoadingResults = false;
-    }, err => {
-      console.log(err);
-      this.isLoadingResults = false;
-    });
-  }  
+  //   this.apiService.getDataIta().subscribe((res: any[]) => {
+  //     this.itaData = res['countrydata'][0];
+  //     this.country = res['countrydata'][0]['info'];
+  //     // this.fetchedNews = res['countrynewsitems'][0];
+  //     console.log(this.itaData);
+  //     console.log(this.country);
+  //     this.isLoadingResults = false;
+  //   }, err => {
+  //     console.log(err);
+  //     this.isLoadingResults = false;
+  //   });
+   }  
 
   //////////////////////////////////////////////////////////////////
 

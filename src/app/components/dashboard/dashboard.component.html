@@ -1,90 +1,113 @@
+<div class="container">
 
-    
+
+    <div class="head">
+        <h1>COVID-19 Evolution Tracker</h1>
+        <h2>Suivez l'évolution du coronavirus au Sénégal et dans le monde</h2>
+    </div>
+
+    <!--//////////MAP CHART//////////-->
+
+    <div class="map-chart" id="map-chart">
+        <app-chart></app-chart>
+    </div>
+
+    <!--/////////COUTNS//////////-->
+<mat-card>
+    <div class="counts-sn" id="counts-sn" *ngIf="fetchedData">
+        
+        <div class="total">
+            <h1>{{ fetchedData['total_cases'] }}</h1>
+            <p>Nombre total de cas</p>
+        </div>
 
 
-    <div style="margin: 0 5px;">
-        <mat-card-header>
-            <mat-card-title style=" margin-bottom: 30px; margin-top: 50px">COVID-19: Senegal Tracker.</mat-card-title>
-            <mat-card-subtitle >Suivez en temps réel l'évolution du coronavirus. <br>
-            Plus de détails sur: <strong>https://thevirustracker.com/</strong> </mat-card-subtitle>
-            
-        </mat-card-header>
-        <div style="height: 10px;"></div>
-        <mat-card-content style="overflow: auto;">
-            <div class="cards-container">
-                <mat-card-header class="cardItem" >
-                    <mat-card-title class="card-title" style="color: orange;">{{ fetchedData['total_cases'] }}</mat-card-title>
-                    <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
-                </mat-card-header>
-                <!--///////////////////////////////////////////-->
-                <mat-card-header class="cardItem">
-                    <mat-card-title class="card-title" style="color: red; ">{{ fetchedData['total_deaths'] }}</mat-card-title>
-                    <mat-card-subtitle>Décés</mat-card-subtitle>
-                </mat-card-header>
-                <!--/////////////////////////////////////////-->
-                <mat-card-header class="cardItem">
-                    <mat-card-title class="card-title" style="color: green;">{{ fetchedData['total_recovered'] }}</mat-card-title>
-                    <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
-                </mat-card-header>
-                <!--/////////////////////////////////////////-->
-                <mat-card-header class="cardItem">
-                    <mat-card-title class="card-title" style="color: blue;"> +{{ fetchedData['total_new_cases_today'] }}</mat-card-title>
-                    <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
-                </mat-card-header>
-                <!--/////////////////////////////////////////-->
-                <mat-card-header class="cardItem">
-                    <mat-card-title class="card-title" style="color: rgb(194, 194, 52);"> +{{ fetchedData['total_new_deaths_today'] }}
-                    </mat-card-title>
-                    <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
-                </mat-card-header>
-                <!--/////////////////////////////////////////-->
-                <mat-card-header class="cardItem">
-                    <mat-card-title class="card-title" style="color: black;">{{ fetchedData['total_serious_cases'] }}</mat-card-title>
-                    <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
-                </mat-card-header>
-            </div>
-            <p> <em>Source: {{ fetchedData['info']['source'] }} </em> </p>
-            <mat-divider></mat-divider>
-            <div class="recommandations">
-                <button mat-raised-button color="primary" style="font-size: 2em; width: 100%">
-                    Mesures de protection:
-                </button>
-                <h2>Se laver fréquemment les mains
-                </h2>
-                <p>Se laver fréquemment les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+        <div class="deaths">
+            <h1>{{ fetchedData['total_deaths'] }}</h1>
+            <p>Décés</p>
+        </div>
 
-                   <strong> Pourquoi?</strong> Se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon tue le virus s’il est présent sur vos mains.</p>
-                   <h2>Éviter les contacts proches
-                </h2>
-                <p>Maintenir une distance d’au moins 1 mètre avec les autres personnes, en particulier si elles toussent, éternuent ou ont de la fièvre. <br>
+        <div class="recovered">
+            <h1>{{ fetchedData['total_recovered'] }}</h1>
+            <p>Cas guéris</p>
+        </div>
 
-                  <strong>Pourquoi?</strong>   Lorsqu’une personne infectée par un virus respiratoire, comme la COVID-19, tousse ou éternue, elle projette de petites gouttelettes contenant le virus. Si vous êtes trop près, vous pouvez inhaler le virus.</p>
+        <div class="new-cases">
+            <h1>+{{ fetchedData['total_new_cases_today'] }}</h1>
+            <p>Nouveaux cas aujourd'hui</p>
+        </div>
 
-                    <h2>Éviter de se toucher les yeux, le nez et la bouche.
-                    </h2>
-                    <p> <strong> Pourquoi? </strong>Les mains sont en contact avec de nombreuses surfaces qui peuvent être contaminées par le virus. Si vous vous touchez les yeux, le nez ou la bouche, vous risquez d’être en contact avec le virus présent sur ces surfaces.
-                    </p>
-                    <h2>Respecter les règles d’hygiène respiratoire
-             </h2>
-             <p>Se couvrir la bouche et le nez avec le pli du coude ou avec un mouchoir en cas de toux ou d’éternuement – jeter le mouchoir immédiatement après dans une poubelle fermée et se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+        <div class="new-deaths">
+            <h1>+{{ fetchedData['total_new_deaths_today'] }}</h1>
+            <p>Nouveaux décés</p>
+        </div>
 
-               <strong>Pourquoi?</strong>  Se couvrir la bouche et le nez en cas de toux ou d’éternuement permet d’éviter la propagation des virus et autres agents pathogènes.</p>
-               <h2>Tenez-vous informé et suivez les conseils de votre médecin
-            </h2>
-            <p>Tenez-vous au courant des dernières évolutions concernant la COVID-19. Suivez les conseils de votre médecin, des autorités de santé nationales et locales ou de votre employeur pour savoir comment vous protéger et protéger les autres de la COVID-19. <br>
+        <div class="serious-cases">
+            <h1>{{ fetchedData['total_serious_cases'] }}</h1>
+            <p>Cas sérieux</p>
+        </div>
 
-                Pourquoi ? Ce sont les autorités nationales et locales qui disposent des informations les plus récentes sur la propagation ou non de la COVID-19 dans la région où vous vous trouvez. Elles sont les mieux placées pour expliquer ce que les personnes dans votre région devraient faire pour se protéger. </p>
-                <h4>Source: <em>https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public</em> </h4>
-            </div>
-            <div class="faq">
-                <button color="primary" mat-raised-button style="font-size: 2em; width: 100%">Questions
-                    fréquentes:</button>
-                <h2>Qu'est-ce qu'un coronavirus?</h2>
-                <p>Les coronavirus forment une vaste famille de virus qui peuvent être pathogènes chez l’homme et chez l’animal. On sait que, chez l’être humain, plusieurs coronavirus peuvent entraîner des infections respiratoires dont les manifestations vont du simple rhume à des maladies plus graves comme le syndrome respiratoire du Moyen-Orient (MERS) et le syndrome respiratoire aigu sévère (SRAS). Le dernier coronavirus qui a été découvert est responsable de la maladie à coronavirus 2019 (COVID-19). </p>
-                <h2>Qu’est-ce que la COVID-19 ?</h2>
-                <p>La COVID-19 est la maladie infectieuse causée par le dernier coronavirus qui a été découvert. Ce nouveau virus et cette maladie étaient inconnus avant l’apparition de la flambée à Wuhan (Chine) en décembre 2019. </p>
-                <h2>Quels sont les symptômes de la COVID-19 ?</h2>
-                <h4>Les symptomes les plus fréquents sont:
+    </div>
+    <p> <em>Source: {{ fetchedData['info']['source'] }} </em>
+</mat-card>
+    <!--///////////////////FAQ//////////////////////-->
+    <mat-divider></mat-divider>
+<div class="faq-and-recommandations" id="faq-and-recommandations" >
+    <div class="faq">
+        <mat-accordion>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false" >
+              <mat-expansion-panel-header class="faq-head">
+                <mat-panel-title>
+                 <h1>Questions Fréquentes</h1> 
+                </mat-panel-title>
+                <mat-panel-description>
+                
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <!--CONTENT-->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header class="faq-1">
+                    <mat-panel-title>
+                     <h2>Qu'est-ce qu'un coronavirus?</h2> 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>Les coronavirus forment une vaste famille de virus qui peuvent être pathogènes chez l’homme et chez l’animal. On sait que, chez l’être humain, plusieurs coronavirus peuvent entraîner des infections respiratoires dont les manifestations vont du simple rhume à des maladies plus graves comme le syndrome respiratoire du Moyen-Orient (MERS) et le syndrome respiratoire aigu sévère (SRAS). Le dernier coronavirus qui a été découvert est responsable de la maladie à coronavirus 2019 (COVID-19). </p>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!--////CONTENT2/////-->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header class="faq-2">
+                    <mat-panel-title>
+                     <h2>Qu’est-ce que la COVID-19?</h2> 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>La COVID-19 est la maladie infectieuse causée par le dernier coronavirus qui a été découvert. Ce nouveau virus et cette maladie étaient inconnus avant l’apparition de la flambée à Wuhan (Chine) en décembre 2019.</p>
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!--/////CONTENT3/////-->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header class="faq-3">
+                    <mat-panel-title>
+                     <h2>Quels sont les symptômes de la COVID-19?</h2> 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>Les symptomes les plus fréquents sont:
                     <ul>
                         <li>Fièvre,</li>
                         <li>Fatigue,</li>
@@ -99,80 +122,166 @@
                         <li>Diarrhée.</li>
                         Ces symptômes sont généralement bénins et apparaissent de manière progressive. Certaines personnes, bien qu’infectées, ne présentent aucun symptôme et se sentent bien. La plupart (environ 80 %) des personnes guérissent sans avoir besoin de traitement particulier. Environ une personne sur six contractant la maladie présente des symptômes plus graves, notamment une dyspnée. Les personnes âgées et celles qui ont d’autres problèmes de santé (hypertension artérielle, problèmes cardiaques ou diabète) ont plus de risques de présenter des symptômes graves. Toute personne qui a de la fièvre, qui tousse et qui a des difficultés à respirer doit consulter un médecin. 
                     </ul>
-                </h4>
-                <h2>Comment la COVID-19 se propage-t-elle ?</h2>
-                <p>La COVID-19 est transmise par des personnes porteuses du virus. La maladie peut se transmettre d’une personne à l’autre par le biais de gouttelettes respiratoires expulsées par le nez ou par la bouche lorsqu’une personne tousse ou éternue. Ces gouttelettes peuvent se retrouver sur des objets ou des surfaces autour de la personne en question. On peut alors contracter la COVID-19 si on touche ces objets ou ces surfaces et si on se touche ensuite les yeux, le nez ou la bouche. Il est également possible de contracter la COVID-19 en inhalant des gouttelettes d’une personne malade qui vient de tousser ou d’éternuer. C’est pourquoi il est important de se tenir à plus d’un mètre d’une personne malade.
+                </mat-expansion-panel>
+              </mat-accordion>
+              <!--////CONTENT 4//////-->
+              <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header class="faq-4">
+                    <mat-panel-title>
+                     <h2>Comment la COVID-19 se propage-t-elle?</h2> 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                     
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <p>La COVID-19 est transmise par des personnes porteuses du virus. La maladie peut se transmettre d’une personne à l’autre par le biais de gouttelettes respiratoires expulsées par le nez ou par la bouche lorsqu’une personne tousse ou éternue. Ces gouttelettes peuvent se retrouver sur des objets ou des surfaces autour de la personne en question. On peut alors contracter la COVID-19 si on touche ces objets ou ces surfaces et si on se touche ensuite les yeux, le nez ou la bouche. Il est également possible de contracter la COVID-19 en inhalant des gouttelettes d’une personne malade qui vient de tousser ou d’éternuer. C’est pourquoi il est important de se tenir à plus d’un mètre d’une personne malade.
 
                     L’OMS examine les travaux de recherche en cours sur la manière dont la COVID-19 se propage et elle continuera à communiquer les résultats actualisés.</p>
-                <h3> <em>Source: https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses</em> </h3>
-                <h2>Quand a été enregistré le premier cas de coronavirus au Sénégal?</h2>
-                <p> Le premier cas à été enreistré le 2 Mars 2020.</p>
-                <h2>Combien de personnes sont infectés par le coronavirus au Sénégal?</h2>
-                <p>A cet instant, {{ fetchedData['total_cases'] }} sont infectés par le coronavirus au Sénégal.</p>
-                <h2>Combien de personnes ont guéries du coronavirus au Sénégal?</h2>
-                <p>A cet instant, {{ fetchedData['total_recovered'] }} personnes on guéries du coronavirus au Sénégal.
-                </p>
-                <h2>Combien de personnes sont décédées du coronavirus au Sénégal? </h2>
-                <p>Actuellement, il y a {{ fetchedData['total_deaths'] }} personnes décédées du coronavirus au Sénégal.
-                </p>
-                <h2>Puis-je voyager vers le Sénégal?</h2>
-                <p>Parcequ'il y a des cas de coronavirus enregistrés au Sénégal, il n'est pas prudent de s'y rendre
-                    actuellement. Si vous y étes obligé, veillez à porter un masque et à vous lavez les mains à chaque
-                    opportunité.</p>
-                <h2>Est-il prudent de recevoir un coli du Sénégal actuellement?</h2>
-                <p>Oui. La probabilité qu'une personne infectée par le coronavirus puisse contaminer des objets
-                    comerciaux venant du Sénégal est trés basse, ainsi que le risque d'attraper le virus causant le
-                    COVID-19 à travers un coli ayant voyagé et ayant été exposé à des conditions et temperatures
-                    différentes.</p>
-            </div>
-            <mat-divider mat-inset></mat-divider>
-            <div class="world">
-               <div>
-                 
-                       <button mat-raised-button color="primary" style="width: 100%">La COVID-19 dans le monde</button>
-                     <p>   Source: <em>https://www.cdc.gov/coronavirus/2019-ncov/cases-updates/world-map.html</em> du 14 Mars 2020, 12:00 </p>
-             
-                   
-                   <mat-card-content>
-                        <img matCardImage src="assets/images/world.png" style="opacity: 0.6;">
-                        <mat-card class="cards-container">
-                            <mat-card-header class="card1">
-                                <mat-card-title class="card-title" style="color: orange;">{{ globalData['total_cases'] }}</mat-card-title>
-                                <mat-card-subtitle>Nombre total de cas</mat-card-subtitle>
-                            </mat-card-header>
-                            <!--///////////////////////////////////////////-->
-                            <mat-card-header class="card2">
-                                <mat-card-title class="card-title" style="color: red;">{{ globalData['total_deaths'] }}</mat-card-title>
-                                <mat-card-subtitle>Décés</mat-card-subtitle>
-                            </mat-card-header>
-                            <!--/////////////////////////////////////////-->
-                            <mat-card-header class="card3">
-                                <mat-card-title class="card-title" style="color: green;">{{ globalData['total_recovered'] }}</mat-card-title>
-                                <mat-card-subtitle>Cas Guéris</mat-card-subtitle>
-                            </mat-card-header>
-                            <!--/////////////////////////////////////////-->
-                            <mat-card-header class="card4">
-                                <mat-card-title class="card-title" style="color: blue;"> +{{ globalData['total_new_cases_today'] }}</mat-card-title>
-                                <mat-card-subtitle>Nouveaux cas aujourd'hui</mat-card-subtitle>
-                            </mat-card-header>
-                            <!--/////////////////////////////////////////-->
-                            <mat-card-header class="card-title" class="card5">
-                                <mat-card-title class="card-title" style="color: rgb(179, 179, 67);"> +{{ globalData['total_new_deaths_today'] }}
-                                </mat-card-title>
-                                <mat-card-subtitle>Nouveaux déces aujourd'hui</mat-card-subtitle>
-                            </mat-card-header>
-                            <!--/////////////////////////////////////////-->
-                            <mat-card-header class="card6">
-                                <mat-card-title class="card-title" style="color: black;">{{ globalData['total_serious_cases'] }}</mat-card-title>
-                                <mat-card-subtitle>Cas sérieux</mat-card-subtitle>
-                            </mat-card-header>
-                       
-                        </mat-card>
-                   </mat-card-content>
-                </div>
-            </div>
-        </mat-card-content>
-        <mat-card-footer>
+                    <p> <em>Source: https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public/q-a-coronaviruses</em> </p>
+                </mat-expansion-panel>
+              </mat-accordion>
+            </mat-expansion-panel>
+  
+          </mat-accordion>
+        
+        </div>
+        <!--///////////RECOMMANDATIONS////////////////-->
 
-        </mat-card-footer>
+        <div class="recommandations">
+            <mat-accordion>
+                <mat-expansion-panel (opened)="panelOpenState = true"
+                                     (closed)="panelOpenState = false" >
+                  <mat-expansion-panel-header class="recommandations-head">
+                    <mat-panel-title>
+                     <h2>Des Recommandations</h2> 
+                    </mat-panel-title>
+                    <mat-panel-description>
+                      
+                    </mat-panel-description>
+                  </mat-expansion-panel-header>
+                  <ul>
+                      <li>Se laver fréquemment les mains <br><p>Se laver fréquemment les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+
+                        <strong> Pourquoi?</strong> Se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon tue le virus s’il est présent sur vos mains.</li>
+                        <!--////-->
+                        <li>Maintenir une distance d’au moins 1 mètre avec les autres personnes, en particulier si elles toussent, éternuent ou ont de la fièvre.<br>
+                            <strong>Pourquoi?</strong>   Lorsqu’une personne infectée par un virus respiratoire, comme la COVID-19, tousse ou éternue, elle projette de petites gouttelettes contenant le virus. Si vous êtes trop près, vous pouvez inhaler le virus.</li>
+                            <!--/////-->
+                        <li>Éviter de se toucher les yeux, le nez et la bouche. <br> <strong> Pourquoi? </strong>Les mains sont en contact avec de nombreuses surfaces qui peuvent être contaminées par le virus. Si vous vous touchez les yeux, le nez ou la bouche, vous risquez d’être en contact avec le virus présent sur ces surfaces.</li>
+                        <li>Respecter les règles d’hygiène respiratoire <br>Se couvrir la bouche et le nez avec le pli du coude ou avec un mouchoir en cas de toux ou d’éternuement – jeter le mouchoir immédiatement après dans une poubelle fermée et se laver les mains avec une solution hydroalcoolique ou à l’eau et au savon. <br>
+
+                            <strong>Pourquoi?</strong>  Se couvrir la bouche et le nez en cas de toux ou d’éternuement permet d’éviter la propagation des virus et autres agents pathogènes.</li>
+                        <li>Tenez-vous informé et suivez les conseils de votre médecin <br>Tenez-vous au courant des dernières évolutions concernant la COVID-19. Suivez les conseils de votre médecin, des autorités de santé nationales et locales ou de votre employeur pour savoir comment vous protéger et protéger les autres de la COVID-19. <br>
+
+                            Pourquoi ? Ce sont les autorités nationales et locales qui disposent des informations les plus récentes sur la propagation ou non de la COVID-19 dans la région où vous vous trouvez. Elles sont les mieux placées pour expliquer ce que les personnes dans votre région devraient faire pour se protéger.</li>
+                            <li><p>Source: <em>https://www.who.int/fr/emergencies/diseases/novel-coronavirus-2019/advice-for-public</em> </p></li>
+                  </ul>
+                </mat-expansion-panel>
+              </mat-accordion>
+        </div>
+</div>
+        <!--///////////////////////WORLD////////////////////////-->
+
+        <div class="world" id="world">
+            <h1 style="text-align: center; margin-top: 20px; background-color: #FFB300">La COVID-19 dans le monde</h1>
+            <mat-card>
+                <div class="counts-sn">
+                    
+                    <div class="total">
+                        <h1>{{ globalData['total_cases'] }}</h1>
+                        <p>Nombre total de cas</p>
+                    </div>
+            
+            
+                    <div class="deaths">
+                        <h1>{{ globalData['total_deaths'] }}</h1>
+                        <p>Décés</p>
+                    </div>
+            
+                    <div class="recovered">
+                        <h1>{{ globalData['total_recovered'] }}</h1>
+                        <p>Cas guéris</p>
+                    </div>
+            
+                    <div class="new-cases">
+                        <h1>+{{ globalData['total_new_cases_today'] }}</h1>
+                        <p>Nouveaux cas aujourd'hui</p>
+                    </div>
+            
+                    <div class="new-deaths">
+                        <h1>+{{ globalData['total_new_deaths_today'] }}</h1>
+                        <p>Nouveaux décés</p>
+                    </div>
+            
+                    <div class="serious-cases">
+                        <h1>{{ globalData['total_serious_cases'] }}</h1>
+                        <p>Cas sérieux</p>
+                    </div>
+            
+                </div>
+            </mat-card>
+        </div>
+
+    <!--///////////////////NEWS//////////////////////-->
+    <mat-card>
+    <h1>Les nouvelles récentes</h1>
+    <div class="news" id="news">
+        
+        <a href="http://www.aps.sn/revue-de-presse/article/les-mesures-d-endiguement-du-coronavirus-a-la-une">
+        <figure>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ30-I6uv7BgxYUsXa3F2BVqW7h_JlkoJ1wDbk9pijVDiwFJ05bTukAUqdQ8lVcq9I4tsI1BjV0&s" alt="">
+            <figcaption>
+                <h2>Les mesures "d'endiguement" du coronavirus à la Une.</h2>
+            </figcaption>
+        </figure>
+        </a>
+        <!--////////////-->
+        <a href="http://news.adakar.com/h/116036.html">
+        <figure>
+            <img src="http://news.adakar.com/img_photos/S/sadio-mane.jpg" alt="">
+            <figcaption>
+                <h2>Coronavirus: Sadio Mané offre 30 millions CFA au Sénégal</h2>
+            </figcaption>
+        </figure>
+        </a>
+        <!--///////////////-->
+        <a href="https://lepetitjournal.com/dakar/le-point-sur-levolution-du-coronavirus-au-senegal-276228">
+            <figure>
+                <img src="https://lepetitjournal.com/sites/default/files/styles/main_article/public/2020-03/photo%20coronavirus.jpg?itok=8n3h96O7" alt="">
+                <figcaption>
+                    <h2>Le point sur l'évolution du Coronavirus au Sénégal.                    </h2>
+                </figcaption>
+            </figure>
+        </a>
+        <!--////////////////-->
+        <a href="https://information.tv5monde.com/afrique/senegal-fetes-de-l-independance-annulees-et-mesures-fortes-face-au-coronavirus-351487">
+            <figure>
+                <img src="https://i.pinimg.com/564x/0f/b1/34/0fb134d2be5a22bf7761321ebf0590a9.jpg" alt="">
+                <figcaption>
+                    <h2>Sénégal: fêtes de l'Indépendance annulées et mesures fortes face au coronavirus.                   </h2>
+                </figcaption>
+            </figure>
+        </a>
+        <!--//////////////////-->
+        <a href="http://aps.sn/actualites/societe/sante/article/covid-19-quatre-nouveaux-cas-detectes-ministere">
+            <figure>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-0LHVCV15rxy08MsMbMkC-IwZ_Wm-5WouEHb6pwK0UeueFIEte-1dZ6_gN5L1WX06HhuScnr&s" alt="">
+                <figcaption>
+                    <h2>COVID-19: 4 nouveaux cas détectés.                  </h2>
+                </figcaption>
+            </figure>
+        </a>
+        <!--///////////////////////-->
+        <a href="https://www.lequotidien.sn/coronavirus-3-nouveaux-cas-dont-un-bebe-de-2-ans/">
+            <figure>
+                <img src="data:image/jpeg;base64,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" alt="">
+                <figcaption>
+                    <h2>Coronavirus- 3 nouveaux cas dont un Bébé de 2 ans                </h2>
+                </figcaption>
+            </figure>
+        </a>
     </div>
+</mat-card>
+</div>

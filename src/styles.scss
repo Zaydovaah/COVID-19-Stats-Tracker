@@ -12,8 +12,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$covid19-tracker-primary: mat-palette($mat-indigo);
-$covid19-tracker-accent: mat-palette($mat-pink, A200, A100, A400);
+$covid19-tracker-primary: mat-palette($mat-orange);
+$covid19-tracker-accent: mat-palette($mat-deep-orange, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $covid19-tracker-warn: mat-palette($mat-red);
@@ -29,4 +29,4 @@ $covid19-tracker-theme: mat-light-theme($covid19-tracker-primary, $covid19-track
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #e2e2e2; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: #cacaca; }
